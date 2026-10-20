@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة المعاينة والتدريب التشغيلي - وحدات المعالجة الحارة NPP | شركة نفط الشمال</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Cairo & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        noc: {
+                            dark: '#0B192C',
+                            navy: '#1E3E62',
+                            gold: '#FFB22C',
+                            accent: '#FF2E63',
+                            slate: '#1E293B',
+                            card: '#111827',
+                            border: '#334155'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+            background-color: #080d16;
+            color: #f1f5f9;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #FFB22C 0%, #D48C00 100%);
+        }
+        .navy-gradient {
+            background: linear-gradient(135deg, #1E3E62 0%, #0B192C 100%);
+        }
+        .card-glow {
+            box-shadow: 0 4px 20px -2px rgba(30, 62, 98, 0.4);
+        }
+        .glow-gold {
+            box-shadow: 0 0 15px rgba(255, 178, 44, 0.3);
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B192C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E3E62;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFB22C;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printableCert, #printableCert * {
+                visibility: visible;
+            }
+            #printableCert {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-noc-gold selection:text-noc-dark">
+
+    <!-- Header / Top Navigation Bar -->
+    <header class="bg-noc-dark/95 backdrop-blur border-b border-noc-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logos & Title -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <!-- NOC Logo SVG Emblem -->
+                    <div class="w-14 h-14 bg-gradient-to-br from-noc-navy to-noc-dark rounded-xl border border-noc-gold/50 flex items-center justify-center p-2 shadow-lg">
+                        <svg viewBox="0 0 100 100" class="w-full h-full text-noc-gold fill-current">
+                            <path d="M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z" fill="none" stroke="currentColor" stroke-width="4"/>
+                            <path d="M50 15 L80 30 L80 70 L50 85 L20 70 L20 30 Z" fill="#1E3E62" opacity="0.6"/>
+                            <!-- Oil Rig Icon -->
+                            <polygon points="50,25 43,70 57,70" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <line x1="38" y1="70" x2="62" y2="70" stroke="currentColor" stroke-width="3"/>
+                            <line x1="45" y1="40" x2="55" y2="40" stroke="currentColor" stroke-width="2"/>
+                            <line x1="43" y1="55" x2="57" y2="55" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="50" cy="22" r="3" fill="#FFB22C"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs px-2 py-0.5 rounded bg-noc-gold/20 text-noc-gold font-bold border border-noc-gold/40">جمهورية العراق - وزارة النفط</span>
+                            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 border border-blue-500/30 font-mono">NOC - NPP - Eng. Mustafa A. Mardan </span>
+                        </div>
+                        <h1 class="text-xl font-extrabold text-white tracking-wide mt-0.5">شركة نفط الشمال <span class="text-noc-gold text-lg font-normal">| منصة المعاينة والتدريب التشغيلي</span></h1>
+                        <p class="text-xs text-slate-400 font-mono">NEW PROCESS PLANT </p>
+                    </div>
+                </div>
+
+                <!-- Web Portal Link & Actions -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://nocoil.gov.iq/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-noc-slate hover:bg-noc-navy text-slate-200 text-xs px-3 py-2 rounded-lg border border-noc-border transition duration-200">
+                        <i class="fa-solid font-bold fa-globe text-noc-gold"></i>
+                        <span>الموقع الرسمي (nocoil.gov.iq)</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                    </a>
+                    
+                    <div class="text-left border-r border-noc-border pr-4">
+                        <div class="text-xs text-slate-400">حالة النظام</div>
+                        <div class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            جاهز للمعاينة التشغيلية
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="bg-noc-dark border-b border-noc-border shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-2 space-x-reverse overflow-x-auto py-2">
+                <button onclick="switchTab('dashboard')" id="tab-dashboard" class="tab-btn px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap bg-noc-gold text-noc-dark transition duration-200">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>لوحة المعاينة التشغيلية</span>
+                </button>
+                <button onclick="switchTab('simulator')" id="tab-simulator" class="tab-btn px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap text-slate-300 hover:bg-noc-navy/50 transition duration-200">
+                    <i class="fa-solid fa-sliders text-noc-gold"></i>
+                    <span>محاكي الظروف التشغيلية</span>
+                </button>
+                <button onclick="switchTab('map')" id="tab-map" class="tab-btn px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap text-slate-300 hover:bg-noc-navy/50 transition duration-200">
+                    <i class="fa-solid fa-map-location-dot text-noc-gold"></i>
+                    <span>خارطة الحقول الجغرافية</span>
+                </button>
+                <button onclick="switchTab('checklist')" id="tab-checklist" class="tab-btn px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap text-slate-300 hover:bg-noc-navy/50 transition duration-200">
+                    <i class="fa-solid fa-list-check text-noc-gold"></i>
+                    <span>قائمة الفحص والمعاينة</span>
+                </button>
+                <button onclick="switchTab('quiz')" id="tab-quiz" class="tab-btn px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 whitespace-nowrap text-slate-300 hover:bg-noc-navy/50 transition duration-200">
+                    <i class="fa-solid fa-graduation-cap text-noc-gold"></i>
+                    <span>اختبار الجاهزية والشهادة</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dynamic Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow">
+
+        <!-- SECTION 1: OPERATIONAL DASHBOARD -->
+        <div id="section-dashboard" class="space-y-6">
+            <!-- Summary Header Banner -->
+            <div class="bg-gradient-to-r from-noc-navy via-noc-dark to-noc-slate p-6 rounded-2xl border border-noc-border flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <h2 class="text-2xl font-black text-white flex items-center gap-3">
+                        <i class="fa-solid fa-microchip text-noc-gold"></i>
+                        لوحة المعاينة التفاعلية لمعدات وحدات المعالجة الحارة (NPP)
+                    </h2>
+                    <p class="text-slate-300 text-sm mt-1">
+                        استعراض الحالة الفنية والمعايير التشغيلية الخاصة بفرز الغازات وتثبيت النفط الخام (Hot Stabilization) قبل بدء عمليات الضخ.
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 bg-noc-dark/80 px-4 py-3 rounded-xl border border-noc-gold/30">
+                    <i class="fa-solid fa-shield-halved text-2xl text-noc-gold"></i>
+                    <div>
+                        <div class="text-xs text-slate-400">الطاقة التصميمية للمجمع </div>
+                        <div class="text-lg font-bold text-noc-gold font-mono"> 1000,000 BPSD</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Equipment Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <!-- Equipment 1: Unit 300 Spherical Tanks -->
+                <div class="bg-noc-card rounded-2xl p-5 border border-noc-border hover:border-noc-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">Unit 300</span>
+                            <span class="text-emerald-400 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Normal</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-notch text-noc-gold"></i>
+                            الخزانات الكروية (Horten Spherical )
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">تستقبل الخام غير المعالج لتوفير فصل أولي للغاز العالي الضغط وموازنة التغذية.</p>
+                        
+                        <div class="mt-4 space-y-2 text-xs font-mono">
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">المستوى التشغيلي الهدف:</span>
+                                <span class="text-white font-bold">50% (Max Flash Area)</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">إنذار ارتفاع المستوى (LAH):</span>
+                                <span class="text-amber-400">+1,790 mm</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">إنذار الإغلاق الإجباري (LAHH):</span>
+                                <span class="text-rose-400">+2,790 mm (MOV Trip)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="inspectEquipment('Unit 300')" class="mt-4 w-full py-2 bg-noc-navy/60 hover:bg-noc-navy text-noc-gold text-xs font-bold rounded-lg border border-noc-gold/30 transition">
+                        معاينة التفاصيل الفنية
+                    </button>
+                </div>
+
+                <!-- Equipment 2: Booster Pumps -->
+                <div class="bg-noc-card rounded-2xl p-5 border border-noc-border hover:border-noc-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">P-301 A/B/C</span>
+                            <span class="text-emerald-400 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Ready</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-pump-soap text-noc-gold"></i>
+                            مضخات التعزيز (Booster Pumps)
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">تفريغ النفط من الخزانات الكروية ودفعه بضغط مناسب عبر مبادلات التدفئة إلى برج النزع.</p>
+                        
+                        <div class="mt-4 space-y-2 text-xs font-mono">
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">ضغط التفريغ (Discharge P):</span>
+                                <span class="text-white font-bold">12.5 - 14.0 bar</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">حد الاهتزاز المسموح:</span>
+                                <span class="text-amber-400">&lt; 0.12 mm/s</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">حرارة المحامل القصوى (Trip):</span>
+                                <span class="text-rose-400">80°C</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="inspectEquipment('Booster Pumps')" class="mt-4 w-full py-2 bg-noc-navy/60 hover:bg-noc-navy text-noc-gold text-xs font-bold rounded-lg border border-noc-gold/30 transition">
+                        معاينة التفاصيل الفنية
+                    </button>
+                </div>
+
+                <!-- Equipment 3: Heat Exchangers E-451 / E-452 -->
+                <div class="bg-noc-card rounded-2xl p-5 border border-noc-border hover:border-noc-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">E-451 / E-452</span>
+                            <span class="text-emerald-400 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Operational</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-arrows-split-up-and-left text-noc-gold"></i>
+                            المبادلات الحرارية (Feed/Bottom Exchangers)
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">استغلال حرارة النفط المثبت المتبقي في قاع البرج لتسخين الخام المغذي مسبقاً وتوفير الطاقة.</p>
+                        
+                        <div class="mt-4 space-y-2 text-xs font-mono">
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">حرارة دخول الخام:</span>
+                                <span class="text-white font-bold">35°C &rarr; 95°C</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">حرارة النفط المثبت الخارج:</span>
+                                <span class="text-amber-400">150°C &rarr; 60°C</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">نوع المبادلات:</span>
+                                <span class="text-emerald-400">Shell & Tube High Eff.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="inspectEquipment('Exchangers')" class="mt-4 w-full py-2 bg-noc-navy/60 hover:bg-noc-navy text-noc-gold text-xs font-bold rounded-lg border border-noc-gold/30 transition">
+                        معاينة التفاصيل الفنية
+                    </button>
+                </div>
+
+                <!-- Equipment 4: Desorber Column C-451 -->
+                <div class="bg-noc-card rounded-2xl p-5 border border-noc-border hover:border-noc-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30">C-451</span>
+                            <span class="text-emerald-400 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Active</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-vial-virus text-noc-gold"></i>
+                            برج النزع والتثبيت (Desorber Column)
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">القلب التكنولوجي للوحدة، يحتوي على 50 صينية صمامية لنزع H2S والمكونات الخفيفة.</p>
+                        
+                        <div class="mt-4 space-y-2 text-xs font-mono">
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">الأبعاد العامة:</span>
+                                <span class="text-white font-bold">Height 48.25m / Dia 6.15m</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">عدد الصواني الصمامية:</span>
+                                <span class="text-amber-400">50 Valve Trays</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">توزيع التغذية:</span>
+                                <span class="text-cyan-400">90% Tray 48 / 10% Tray 50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="inspectEquipment('Desorber C-451')" class="mt-4 w-full py-2 bg-noc-navy/60 hover:bg-noc-navy text-noc-gold text-xs font-bold rounded-lg border border-noc-gold/30 transition">
+                        معاينة التفاصيل الفنية
+                    </button>
+                </div>
+
+                <!-- Equipment 5: Reboiler Furnace H-451 -->
+                <div class="bg-noc-card rounded-2xl p-5 border border-noc-border hover:border-noc-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-orange-500/20 text-orange-400 border border-orange-500/30">H-451</span>
+                            <span class="text-emerald-400 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Fired</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-fire-burner text-noc-gold"></i>
+                            فرن إعادة التسخين (Reboiler Furnace)
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">توفير الطاقة الحرارية اللازمة لقاع البرج لتبخير المركبات الغازية المتبقية وإعادة تدويرها.</p>
+                        
+                        <div class="mt-4 space-y-2 text-xs font-mono">
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">عدد الممرات والأنابيب:</span>
+                                <span class="text-white font-bold">28 Passes (224 Tubes)</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">خامة الأنابيب المقاومة:</span>
+                                <span class="text-amber-400">5% Cr + 0.5% Mo Alloy</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">مضخة التدوير الاضطرارية:</span>
+                                <span class="text-emerald-400">Steam Turbine P-455</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="inspectEquipment('Furnace H-451')" class="mt-4 w-full py-2 bg-noc-navy/60 hover:bg-noc-navy text-noc-gold text-xs font-bold rounded-lg border border-noc-gold/30 transition">
+                        معاينة التفاصيل الفنية
+                    </button>
+                </div>
+
+                <!-- Equipment 6: Compressors & Gas Processing 8-AB -->
+                <div class="bg-noc-card rounded-2xl p-5 border border-noc-border hover:border-noc-gold/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">8-AB & North Gas</span>
+                            <span class="text-emerald-400 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Connected</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-gas-pump text-noc-gold"></i>
+                            محطة الكبس الثامنة ومجمع غاز الشمال
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">تجميع واستخلاص غازات رأس البرج الغنية (C3/C4+) وتحويلها لمجمع الغاز للإنتاج المالي.</p>
+                        
+                        <div class="mt-4 space-y-2 text-xs font-mono">
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">ضغط تجميع الغازات:</span>
+                                <span class="text-white font-bold">3.2 - 3.8 bar</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-noc-border/50">
+                                <span class="text-slate-400">المركبات المسترجعة:</span>
+                                <span class="text-amber-400">LPG / NGL Recovery</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">مستوى السلامة البيئية:</span>
+                                <span class="text-emerald-400">Zero Routine Flaring</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="inspectEquipment('Gas Station 8-AB')" class="mt-4 w-full py-2 bg-noc-navy/60 hover:bg-noc-navy text-noc-gold text-xs font-bold rounded-lg border border-noc-gold/30 transition">
+                        معاينة التفاصيل الفنية
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION 2: PRE-RUN SIMULATOR -->
+        <div id="section-simulator" class="hidden space-y-6">
+            <div class="bg-noc-card border border-noc-border rounded-2xl p-6">
+                <div class="flex items-center justify-between border-b border-noc-border pb-4 mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-noc-gold"></i>
+                            محاكي الظروف التشغيلية ونواتج التثبيت (Pre-Run Simulator)
+                        </h2>
+                        <p class="text-xs text-slate-400">اضبط المتغيرات العملية لحساب درجة جودة النفط الخام المنتَج والغازات المتصاعدة فورياً قبل البدء الفعلي.</p>
+                    </div>
+                    <span class="px-3 py-1 bg-noc-navy text-noc-gold text-xs font-mono rounded-full border border-noc-gold/30">Dynamic Rigorous Model</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Controls Column -->
+                    <div class="lg:col-span-5 space-y-6 bg-noc-dark/60 p-5 rounded-xl border border-noc-border">
+                        <h3 class="text-sm font-bold text-noc-gold uppercase tracking-wider font-mono"><i class="fa-solid fa-gears ml-1"></i> متغيرات التغذية والتشغيل</h3>
+                        
+                        <!-- Control 1: Bottom Temp -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-2">
+                                <span class="text-slate-300 font-bold">حرارة قاع العمود (Bottom Temp):</span>
+                                <span id="val-bottomTemp" class="text-noc-gold font-mono font-bold text-sm">153 °C</span>
+                            </div>
+                            <input type="range" id="input-bottomTemp" min="100" max="180" value="153" step="1" 
+                                   oninput="updateSimulator()" class="w-full accent-noc-gold bg-noc-slate rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                                <span>100°C (Unstable)</span>
+                                <span>153°C (Design)</span>
+                                <span>180°C (Coking Risk)</span>
+                            </div>
+                        </div>
+
+                        <!-- Control 2: Top Pressure -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-2">
+                                <span class="text-slate-300 font-bold">ضغط قمة البرج (Top Pressure):</span>
+                                <span id="val-topPress" class="text-noc-gold font-mono font-bold text-sm">3.5 bar</span>
+                            </div>
+                            <input type="range" id="input-topPress" min="1.5" max="5.0" value="3.5" step="0.1" 
+                                   oninput="updateSimulator()" class="w-full accent-noc-gold bg-noc-slate rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                                <span>1.5 bar</span>
+                                <span>3.5 bar (Optimal)</span>
+                                <span>5.0 bar</span>
+                            </div>
+                        </div>
+
+                        <!-- Control 3: Feed Rate -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-2">
+                                <span class="text-slate-300 font-bold">معدل التغذية الكلي (Feed Rate):</span>
+                                <span id="val-feedRate" class="text-noc-gold font-mono font-bold text-sm">220,000 BPSD</span>
+                            </div>
+                            <input type="range" id="input-feedRate" min="100000" max="300000" value="220000" step="5000" 
+                                   oninput="updateSimulator()" class="w-full accent-noc-gold bg-noc-slate rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                                <span>100k BPSD</span>
+                                <span>220k BPSD</span>
+                                <span>300k BPSD (Max)</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 border-t border-noc-border">
+                            <button onclick="resetSimulator()" class="w-full py-2 bg-noc-slate hover:bg-noc-navy text-slate-300 text-xs font-bold rounded-lg border border-noc-border transition">
+                                إعادة الضبط للقيم التصميمية القياسية
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Output & Preview Dashboard Column -->
+                    <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+                        
+                        <!-- Calculated Indicators Grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Indicator 1: H2S Content -->
+                            <div class="bg-noc-slate/40 border border-noc-border p-4 rounded-xl">
+                                <div class="text-xs text-slate-400">تركيز H2S في النفط المعالج</div>
+                                <div id="sim-h2s" class="text-2xl font-black font-mono text-emerald-400 mt-1">18.5 <span class="text-xs font-normal">ppm</span></div>
+                                <div class="text-[11px] text-slate-400 mt-2">المواصفة التصديرية: &lt; 50 ppm</div>
+                            </div>
+
+                            <!-- Indicator 2: RVP -->
+                            <div class="bg-noc-slate/40 border border-noc-border p-4 rounded-xl">
+                                <div class="text-xs text-slate-400">ضغط البخار (Reid Vapour P)</div>
+                                <div id="sim-rvp" class="text-2xl font-black font-mono text-emerald-400 mt-1">5.8 <span class="text-xs font-normal">psi</span></div>
+                                <div class="text-[11px] text-slate-400 mt-2">المواصفة التصديرية: &lt; 7.0 psi</div>
+                            </div>
+
+                            <!-- Indicator 3: Off-gas Volume -->
+                            <div class="bg-noc-slate/40 border border-noc-border p-4 rounded-xl">
+                                <div class="text-xs text-slate-400">كمية الغاز المتصاعد لـ 8-AB</div>
+                                <div id="sim-offgas" class="text-2xl font-black font-mono text-noc-gold mt-1">42.8 <span class="text-xs font-normal">MMSCFD</span></div>
+                                <div class="text-[11px] text-slate-400 mt-2">استخلاص LPG و C3/C4+</div>
+                            </div>
+
+                            <!-- Indicator 4: Duty Heat Load -->
+                            <div class="bg-noc-slate/40 border border-noc-border p-4 rounded-xl">
+                                <div class="text-xs text-slate-400">الحمل الحراري للفرن H-451</div>
+                                <div id="sim-heatduty" class="text-2xl font-black font-mono text-cyan-400 mt-1">38.4 <span class="text-xs font-normal">MW</span></div>
+                                <div class="text-[11px] text-slate-400 mt-2">كفاءة الاحتراق والتسخين</div>
+                            </div>
+                        </div>
+
+                        <!-- Status & Operational Directive Box -->
+                        <div id="sim-status-box" class="p-5 rounded-xl border bg-emerald-950/30 border-emerald-500/40 text-emerald-300">
+                            <div class="flex items-center gap-3">
+                                <i id="sim-status-icon" class="fa-solid fa-circle-check text-2xl text-emerald-400"></i>
+                                <div>
+                                    <h4 id="sim-status-title" class="font-bold text-sm text-emerald-200">الظروف التشغيلية ممتازة ضمن المواصفات التصديرية القياسية</h4>
+                                    <p id="sim-status-msg" class="text-xs text-emerald-300/80 mt-0.5">درجة الحرارة والضغط متوازنان بشكل يضمن خفض H2S وضغط البخار RVP بدقة عالية دون إجهاد الفرن.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: NOC GEOGRAPHICAL FIELD MAP -->
+        <div id="section-map" class="hidden space-y-6">
+            <div class="bg-noc-card border border-noc-border rounded-2xl p-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-noc-border pb-4 mb-6 gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot text-noc-gold"></i>
+                            الخارطة التفاعلية لحقول وخطوط أنابيب شركة نفط الشمال (NOC Map)
+                        </h2>
+                        <p class="text-xs text-slate-400">معاينة التوزيع الجغرافي للشبكة وأقطار خطوط الأنابيب الرئيسية المرتبطة بمجمع التركيز الجديد (NPP).</p>
+                    </div>
+                    <div class="text-xs text-slate-400 font-mono bg-noc-dark px-3 py-1.5 rounded-lg border border-noc-border">
+                        المقر الرئيسي: كركوك - عرفة | North Oil Company HQ
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- SVG Interactive Iraq Map -->
+                    <div class="lg:col-span-7 bg-noc-dark/80 p-4 rounded-2xl border border-noc-border flex justify-center items-center relative min-h-[380px]">
+                        
+                        <svg viewBox="0 0 600 600" class="w-full max-w-[500px] h-auto drop-shadow-lg">
+                            <!-- Simplified Iraq Map Path Outline -->
+                            <path d="M 200,80 L 320,60 L 450,110 L 480,180 L 460,250 L 520,340 L 500,420 L 440,510 L 380,520 L 300,450 L 220,380 L 120,320 L 80,220 L 120,120 Z" 
+                                  fill="#0F2238" stroke="#1E3E62" stroke-width="3" stroke-dasharray="none"/>
+                            
+                            <!-- Pipelines Connecting to NPP Center -->
+                            <!-- Kirkuk 32" Line -->
+                            <line x1="320" y1="210" x2="335" y2="215" stroke="#FFB22C" stroke-width="4" stroke-linecap="round"/>
+                            <!-- Bai Hassan 24" Line -->
+                            <line x1="285" y1="185" x2="335" y2="215" stroke="#38BDF8" stroke-width="3" stroke-dasharray="4"/>
+                            <!-- Jambur 20" Line -->
+                            <line x1="365" y1="250" x2="335" y2="215" stroke="#A855F7" stroke-width="2.5" stroke-dasharray="4"/>
+                            <!-- Khabbaz 16" Line -->
+                            <line x1="295" y1="235" x2="335" y2="215" stroke="#F43F5E" stroke-width="2"/>
+
+                            <!-- FIELD MARKERS (INTERACTIVE) -->
+
+                            <!-- 1. NPP Central Complex (Kirkuk) -->
+                            <g onclick="selectField('npp')" class="cursor-pointer group">
+                                <circle cx="335" cy="215" r="14" class="fill-noc-gold/20 animate-ping"/>
+                                <circle cx="335" cy="215" r="9" class="fill-noc-gold stroke-white stroke-2 group-hover:scale-125 transition duration-200"/>
+                                <text x="352" y="218" font-size="12" font-weight="bold" fill="#FFB22C" class="font-cairo">مجمع NPP (عرفه)</text>
+                            </g>
+
+                            <!-- 2. Bai Hassan Field -->
+                            <g onclick="selectField('bai_hassan')" class="cursor-pointer group">
+                                <circle cx="285" cy="185" r="7" class="fill-sky-400 stroke-white stroke-2 group-hover:scale-125 transition duration-200"/>
+                                <text x="220" y="180" font-size="11" font-weight="bold" fill="#38BDF8" class="font-cairo">حقل باي حسن</text>
+                            </g>
+
+                            <!-- 3. Jambur Field -->
+                            <g onclick="selectField('jambur')" class="cursor-pointer group">
+                                <circle cx="365" cy="250" r="7" class="fill-purple-500 stroke-white stroke-2 group-hover:scale-125 transition duration-200"/>
+                                <text x="378" y="255" font-size="11" font-weight="bold" fill="#C084FC" class="font-cairo">حقل جمبور</text>
+                            </g>
+
+                            <!-- 4. Khabbaz Field -->
+                            <g onclick="selectField('khabbaz')" class="cursor-pointer group">
+                                <circle cx="295" cy="235" r="6" class="fill-rose-500 stroke-white stroke-2 group-hover:scale-125 transition duration-200"/>
+                                <text x="235" y="245" font-size="11" font-weight="bold" fill="#FB7185" class="font-cairo">حقل خباز</text>
+                            </g>
+
+                            <!-- 5. Nineveh Fields (Ain Zalah / Qayyarah) -->
+                            <g onclick="selectField('nineveh')" class="cursor-pointer group">
+                                <circle cx="210" cy="130" r="7" class="fill-emerald-400 stroke-white stroke-2 group-hover:scale-125 transition duration-200"/>
+                                <text x="140" y="125" font-size="11" font-weight="bold" fill="#34D399" class="font-cairo">حقول نينوى (القيارة)</text>
+                            </g>
+                        </svg>
+
+                        <div class="absolute bottom-3 right-3 bg-noc-dark/90 p-3 rounded-lg border border-noc-border text-[11px] space-y-1">
+                            <div class="font-bold text-slate-300 mb-1">دليل خطوط التغذية للأنابيب:</div>
+                            <div class="flex items-center gap-2 text-slate-300"><span class="w-3 h-1 bg-noc-gold rounded"></span> أنبوب كركوك (32 عقدة)</div>
+                            <div class="flex items-center gap-2 text-slate-300"><span class="w-3 h-1 bg-sky-400 rounded"></span> أنبوب باي حسن (24 عقدة)</div>
+                            <div class="flex items-center gap-2 text-slate-300"><span class="w-3 h-1 bg-purple-500 rounded"></span> أنبوب جمبور (20 عقدة)</div>
+                            <div class="flex items-center gap-2 text-slate-300"><span class="w-3 h-1 bg-rose-500 rounded"></span> أنبوب خباز (16 عقدة)</div>
+                        </div>
+
+                    </div>
+
+                    <!-- Field Information Details Card -->
+                    <div class="lg:col-span-5 bg-noc-slate/30 border border-noc-border rounded-2xl p-6 flex flex-col justify-between min-h-[380px]">
+                        <div>
+                            <div class="flex justify-between items-center border-b border-noc-border pb-3 mb-4">
+                                <span id="map-field-tag" class="text-xs px-2.5 py-1 rounded bg-noc-gold/20 text-noc-gold font-mono font-bold border border-noc-gold/30">NPP CENTER</span>
+                                <span class="text-xs text-slate-400 font-mono">NOC FIELD DATA</span>
+                            </div>
+
+                            <h3 id="map-field-title" class="text-2xl font-black text-white">مجمع المعالجة الجديد (NPP Center)</h3>
+                            <p id="map-field-desc" class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                المركز التشغيلي التجميعي الرئيسي في كركوك (منطقة عرفة)، يستقبل النفط الخام عالي الكبريت من مختلف حقول الشركة لإجراء عمليات المعالجة والتثبيت الحار وتخفيض ضغط البخار.
+                            </p>
+
+                            <div class="mt-6 space-y-3 font-mono text-xs">
+                                <div class="bg-noc-dark/60 p-3 rounded-xl border border-noc-border flex justify-between">
+                                    <span class="text-slate-400">قطر أنبوب الربط (Pipeline):</span>
+                                    <span id="map-field-pipe" class="text-noc-gold font-bold">32 Inch Main Trunk Line</span>
+                                </div>
+                                <div class="bg-noc-dark/60 p-3 rounded-xl border border-noc-border flex justify-between">
+                                    <span class="text-slate-400">الطاقة الإنتاجية والتصميمية:</span>
+                                    <span id="map-field-cap" class="text-emerald-400 font-bold">700,000 BPSD Total</span>
+                                </div>
+                                <div class="bg-noc-dark/60 p-3 rounded-xl border border-noc-border flex justify-between">
+                                    <span class="text-slate-400">نوع الخام المورد:</span>
+                                    <span id="map-field-type" class="text-cyan-300 font-bold">Kirkuk Crude / Sour Grade</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-noc-border text-center text-xs text-slate-400">
+                            انقر على أي نقطة حقل على الخارطة لمعاينة البيانات الفنية الخاصة به.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: PRE-STARTUP CHECKLIST -->
+        <div id="section-checklist" class="hidden space-y-6">
+            <div class="bg-noc-card border border-noc-border rounded-2xl p-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-noc-border pb-4 mb-6 gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-noc-gold"></i>
+                            قائمة مراجعة الفحص المعاينة قبل التشغيل (Pre-Startup Safety Checklist)
+                        </h2>
+                        <p class="text-xs text-slate-400">قم بمراجعة وتأكيد كافة معايير السلامة والمستويات الهيدروليكية لحساب جاهزية الوحدة للتشغيل.</p>
+                    </div>
+                    
+                    <!-- Progress Bar & Readiness Score -->
+                    <div class="flex items-center gap-4 bg-noc-dark p-3 rounded-xl border border-noc-border">
+                        <div>
+                            <div class="text-[11px] text-slate-400">نسبة الجاهزية التشغيلية</div>
+                            <div id="checklist-score" class="text-xl font-black text-noc-gold font-mono">0%</div>
+                        </div>
+                        <div class="w-28 bg-noc-slate rounded-full h-3 overflow-hidden border border-noc-border">
+                            <div id="checklist-bar" class="bg-noc-gold h-full transition-all duration-300 w-0"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checklist Items Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                    <!-- Item 1 -->
+                    <label class="flex items-start gap-3 bg-noc-dark/60 p-4 rounded-xl border border-noc-border hover:border-noc-gold/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="chk-item mt-1 w-4 h-4 accent-noc-gold rounded">
+                        <div>
+                            <div class="text-sm font-bold text-white">الخزانات الكروية (Unit 300) عند مستوى 50%</div>
+                            <div class="text-xs text-slate-400 mt-0.5">تأكيد استقرار منسوب الخزان عند النصف لتأمين المساحة السطحية للتنفيس الفلاشي للغاز.</div>
+                        </div>
+                    </label>
+
+                    <!-- Item 2 -->
+                    <label class="flex items-start gap-3 bg-noc-dark/60 p-4 rounded-xl border border-noc-border hover:border-noc-gold/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="chk-item mt-1 w-4 h-4 accent-noc-gold rounded">
+                        <div>
+                            <div class="text-sm font-bold text-white">صمامات الأمان وتصريف الشعلة (PSV 5.2 bar)</div>
+                            <div class="text-xs text-slate-400 mt-0.5">اختبار صمامات الضغط الزائد وبرج الشعلة الرئيسي وتأكيد جاهزية خطوط التنفيس.</div>
+                        </div>
+                    </label>
+
+                    <!-- Item 3 -->
+                    <label class="flex items-start gap-3 bg-noc-dark/60 p-4 rounded-xl border border-noc-border hover:border-noc-gold/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="chk-item mt-1 w-4 h-4 accent-noc-gold rounded">
+                        <div>
+                            <div class="text-sm font-bold text-white">منظومة ماء الفصل وتصريف الترسبات (Water KO Drum D-451)</div>
+                            <div class="text-xs text-slate-400 mt-0.5">تأكد من خلو النفط الخام من المياه الحرة والتصريف التلقائي لوعاء D-451.</div>
+                        </div>
+                    </label>
+
+                    <!-- Item 4 -->
+                    <label class="flex items-start gap-3 bg-noc-dark/60 p-4 rounded-xl border border-noc-border hover:border-noc-gold/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="chk-item mt-1 w-4 h-4 accent-noc-gold rounded">
+                        <div>
+                            <div class="text-sm font-bold text-white">مضخة التدوير الاضطرارية التوربينية (Steam Turbine P-455)</div>
+                            <div class="text-xs text-slate-400 mt-0.5">اختبار جاهزية توربين البخار لضخ النفط في الفرن H-451 لمنع تفحم الأنابيب عند انقطاع الكهرباء.</div>
+                        </div>
+                    </label>
+
+                    <!-- Item 5 -->
+                    <label class="flex items-start gap-3 bg-noc-dark/60 p-4 rounded-xl border border-noc-border hover:border-noc-gold/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="chk-item mt-1 w-4 h-4 accent-noc-gold rounded">
+                        <div>
+                            <div class="text-sm font-bold text-white">صواني برج النزع C-451 ودورة التدوير (Recirculation Valve FIC-69)</div>
+                            <div class="text-xs text-slate-400 mt-0.5">جاهزية صمام التدوير بنسبة 60% لضمان استقرار الهيدروليكية داخل البرج عند التغذية المنخفضة.</div>
+                        </div>
+                    </label>
+
+                    <!-- Item 6 -->
+                    <label class="flex items-start gap-3 bg-noc-dark/60 p-4 rounded-xl border border-noc-border hover:border-noc-gold/40 cursor-pointer transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="chk-item mt-1 w-4 h-4 accent-noc-gold rounded">
+                        <div>
+                            <div class="text-sm font-bold text-white">محطة الكبس 8-AB ومجمع غاز الشمال</div>
+                            <div class="text-xs text-slate-400 mt-0.5">تأكيد فتح مسار الغازات الثمينة (C3/C4+) إلى محطة الكبس لمنع الحرق الروتيني للغاز.</div>
+                        </div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: QUIZ & CERTIFICATION GENERATOR -->
+        <div id="section-quiz" class="hidden space-y-6">
+            <div class="bg-noc-card border border-noc-border rounded-2xl p-6">
+                
+                <div class="border-b border-noc-border pb-4 mb-6">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-noc-gold"></i>
+                        اختبار قياس الجاهزية والمعرفة التشغيلية (NPP Technical Evaluation)
+                    </h2>
+                    <p class="text-xs text-slate-400">أجب عن الأسئلة الهندسية التالية لإصدار شهادة المعاينة والجاهزية التشغيلية الرسمية.</p>
+                </div>
+
+                <!-- Trainee Info Form -->
+                <div class="bg-noc-dark/80 p-4 rounded-xl border border-noc-border mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-slate-300 font-bold mb-1">اسم المهندس / المتدرب الرباعي:</label>
+                        <input type="text" id="traineeName" placeholder="أدخل اسمك الكامل هنا..." 
+                               class="w-full bg-noc-slate border border-noc-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-noc-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-300 font-bold mb-1">العنوان الوظيفي / الدائرة:</label>
+                        <input type="text" id="traineeDept" placeholder="مثال: هيأة التشغيل / قسم المعالجة" 
+                               class="w-full bg-noc-slate border border-noc-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-noc-gold">
+                    </div>
+                </div>
+
+                <!-- Questions Container -->
+                <div id="quiz-questions" class="space-y-6">
+                    <!-- Questions dynamic rendering via JS -->
+                </div>
+
+                <div class="mt-8 pt-4 border-t border-noc-border flex justify-end">
+                    <button onclick="submitQuiz()" class="px-6 py-3 bg-noc-gold hover:bg-amber-500 text-noc-dark font-extrabold text-sm rounded-xl transition duration-200 flex items-center gap-2 shadow-lg">
+                        <i class="fa-solid fa-award text-lg"></i>
+                        <span>تقييم الإجابات وإصدار الشهادة</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- PRINTABLE CERTIFICATE CARD (Hidden until passed) -->
+            <div id="printableCert" class="hidden bg-slate-900 border-4 border-noc-gold rounded-2xl p-8 relative overflow-hidden text-center my-6">
+                <div class="border-2 border-noc-gold/40 p-6 rounded-xl">
+                    <!-- Logos -->
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="text-right">
+                            <h3 class="text-lg font-bold text-noc-gold">شركة نفط الشمال</h3>
+                            <p class="text-[10px] text-slate-400 font-mono">NORTH OIL COMPANY (NOC)</p>
+                        </div>
+                        <div class="w-16 h-16 bg-noc-navy/50 rounded-full border border-noc-gold flex items-center justify-center text-noc-gold font-bold">
+                            NOC
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-lg font-bold text-slate-300">وزارة النفط</h3>
+                            <p class="text-[10px] text-slate-400 font-mono">MINISTRY OF OIL - IRAQ</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-3xl font-black text-white mt-2">شهادة معايرة وجاهزية تشغيلية</h2>
+                    <p class="text-xs text-noc-gold font-mono tracking-widest mt-1">CERTIFICATE OF PROCESS PLANT READINESS & EVALUATION</p>
+
+                    <p class="text-slate-300 text-sm mt-6">تشهد إدارة التدريب والتطوير في شركة نفط الشمال بأن المهندس/ـة:</p>
+                    <div id="certName" class="text-2xl font-black text-noc-gold my-2 border-b border-noc-gold/30 pb-2 inline-block px-8">اسم المتدرب</div>
+                    <p id="certDept" class="text-xs text-slate-400 font-mono">قسم المعالجة والعمليات</p>
+
+                    <p class="text-slate-300 text-xs max-w-xl mx-auto mt-4 leading-relaxed">
+                        قد أتم بنجاح برنامج المعاينة التفاعلي واختبار الجاهزية الهندسية لمشروع وحدات المعالجة الحارة <br>
+                        <span class="text-white font-bold font-mono">(New Process Center NPP - Package B)</span> بنسبة نجاح 
+                        <span id="certScore" class="text-emerald-400 font-bold font-mono">100%</span>.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8 mt-10 pt-6 border-t border-slate-800 text-xs">
+                        <div>
+                            <div class="text-slate-400">التاريخ: <span id="certDate" class="text-white font-mono"></span></div>
+                            <div class="text-slate-400">الرقم المرجعي: <span class="text-noc-gold font-mono">NOC-NPP-2026-99A</span></div>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-slate-300 font-bold">توقيع المسؤول الفني:</div>
+                            <div class="text-noc-gold font-mono text-[10px] mt-1">شعبة التدريب التشغيلي - NPP</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex justify-center gap-4 no-print">
+                    <button onclick="window.print()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i>
+                        <span>طباعة الشهادة الرسمية</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-noc-dark border-t border-noc-border py-4 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
+            <div>© 2026 شركة نفط الشمال (NOC) - جميع الحقوق محفوظة لوزارة النفط العراقية.</div>
+            <div class="font-mono text-[11px] text-slate-400">NPP Package B Training System v3.2</div>
+        </div>
+    </footer>
+
+    <!-- Equipment Modal Dialog -->
+    <div id="equipModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-noc-card border border-noc-border rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-xl">&times;</button>
+            <div class="flex items-center gap-3 border-b border-noc-border pb-3">
+                <i class="fa-solid fa-circle-info text-2xl text-noc-gold"></i>
+                <div>
+                    <h3 id="modalTitle" class="text-lg font-bold text-white">اسم المعدة</h3>
+                    <p id="modalCode" class="text-xs text-noc-gold font-mono">EQUIPMENT CODE</p>
+                </div>
+            </div>
+            <p id="modalBody" class="text-xs text-slate-300 leading-relaxed">تفاصيل المعدة والمعايير الفنية التشغيلية...</p>
+            <div class="pt-2 text-left">
+                <button onclick="closeModal()" class="px-4 py-2 bg-noc-navy hover:bg-noc-slate text-noc-gold text-xs font-bold rounded-lg border border-noc-gold/30">
+                    إغلاق المعاينة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Tab Switching Functionality
+        function switchTab(tabId) {
+            const tabs = ['dashboard', 'simulator', 'map', 'checklist', 'quiz'];
+            tabs.forEach(t => {
+                document.getElementById(`section-${t}`).classList.add('hidden');
+                const btn = document.getElementById(`tab-${t}`);
+                if (btn) {
+                    btn.classList.remove('bg-noc-gold', 'text-noc-dark');
+                    btn.classList.add('text-slate-300');
+                }
+            });
+
+            document.getElementById(`section-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-noc-gold', 'text-noc-dark');
+                activeBtn.classList.remove('text-slate-300');
+            }
+        }
+
+        // 2. Pre-Run Simulator Engine
+        function updateSimulator() {
+            const temp = parseFloat(document.getElementById('input-bottomTemp').value);
+            const press = parseFloat(document.getElementById('input-topPress').value);
+            const feed = parseFloat(document.getElementById('input-feedRate').value);
+
+            // Dynamic Labels
+            document.getElementById('val-bottomTemp').innerText = `${temp} °C`;
+            document.getElementById('val-topPress').innerText = `${press.toFixed(1)} bar`;
+            document.getElementById('val-feedRate').innerText = `${feed.toLocaleString()} BPSD`;
+
+            // Calculations based on Thermodynamics of crude stripping
+            // Higher Temp & Lower Pressure = Lower H2S & Lower RVP (More gases stripped)
+            let h2s = Math.max(2, 18.5 - (temp - 153) * 0.4 + (press - 3.5) * 2.5);
+            let rvp = Math.max(1.5, 5.8 - (temp - 153) * 0.08 + (press - 3.5) * 0.6);
+            let offgas = (feed / 220000) * (42.8 + (temp - 153) * 0.25 - (press - 3.5) * 1.2);
+            let heatduty = (feed / 220000) * (38.4 + (temp - 153) * 0.3);
+
+            // Display Results
+            document.getElementById('sim-h2s').innerHTML = `${h2s.toFixed(1)} <span class="text-xs font-normal">ppm</span>`;
+            document.getElementById('sim-rvp').innerHTML = `${rvp.toFixed(1)} <span class="text-xs font-normal">psi</span>`;
+            document.getElementById('sim-offgas').innerHTML = `${offgas.toFixed(1)} <span class="text-xs font-normal">MMSCFD</span>`;
+            document.getElementById('sim-heatduty').innerHTML = `${heatduty.toFixed(1)} <span class="text-xs font-normal">MW</span>`;
+
+            // Status & Safety Directive Assessment
+            const statusBox = document.getElementById('sim-status-box');
+            const statusIcon = document.getElementById('sim-status-icon');
+            const statusTitle = document.getElementById('sim-status-title');
+            const statusMsg = document.getElementById('sim-status-msg');
+
+            if (temp > 170) {
+                statusBox.className = "p-5 rounded-xl border bg-rose-950/40 border-rose-500/50 text-rose-300";
+                statusIcon.className = "fa-solid fa-triangle-exclamation text-2xl text-rose-400";
+                statusTitle.innerText = "تحذير: خطورة تفحم الأنابيب (Coking Hazard)";
+                statusMsg.innerText = "حرارة قاع البرج تتجاوز 170°C مما يعرض أنابيب الفرن H-451 للترسبات الفحمية واحتراق الخام.";
+            } else if (h2s > 50 || rvp > 7.0) {
+                statusBox.className = "p-5 rounded-xl border bg-amber-950/40 border-amber-500/50 text-amber-300";
+                statusIcon.className = "fa-solid fa-circle-exclamation text-2xl text-amber-400";
+                statusTitle.innerText = "تنبيه: المنتج خارج المواصفات التصديرية القياسية";
+                statusMsg.innerText = "تركيز H2S أوالـ RVP أعلى من الحد المسموح للتصدير. يرجى رفع الحرارة أو خفض ضغط البرج لتشديد النزع.";
+            } else {
+                statusBox.className = "p-5 rounded-xl border bg-emerald-950/30 border-emerald-500/40 text-emerald-300";
+                statusIcon.className = "fa-solid fa-circle-check text-2xl text-emerald-400";
+                statusTitle.innerText = "الظروف التشغيلية ممتازة ضمن المواصفات التصديرية القياسية";
+                statusMsg.innerText = "درجة الحرارة والضغط متوازنان بشكل يضمن خفض H2S وضغط البخار RVP بدقة عالية دون إجهاد الفرن.";
+            }
+        }
+
+        function resetSimulator() {
+            document.getElementById('input-bottomTemp').value = 153;
+            document.getElementById('input-topPress').value = 3.5;
+            document.getElementById('input-feedRate').value = 220000;
+            updateSimulator();
+        }
+
+        // 3. NOC Field Map Interactions
+        const fieldData = {
+            npp: {
+                tag: "NPP CENTER",
+                title: "مجمع المعالجة الجديد (NPP Center)",
+                desc: "المركز التشغيلي التجميعي الرئيسي في كركوك (منطقة عرفة)، يستقبل النفط الخام عالي الكبريت من مختلف حقول الشركة لإجراء عمليات المعالجة والتثبيت الحار وتخفيض ضغط البخار.",
+                pipe: "32 Inch Main Trunk Line",
+                cap: "700,000 BPSD Total",
+                type: "Kirkuk Crude / Sour Grade"
+            },
+            bai_hassan: {
+                tag: "BAI HASSAN FIELD",
+                title: "حقل باي حسن (North-West Kirkuk)",
+                desc: "أحد أكبر الحقول الموردة للنفط الخام المعالج في مجمع NPP، يربط بأنبوب رئيسي قطر 24 عقدة ومجهز بمحطات عزل الغاز الشمالية والجنوبية.",
+                pipe: "24 Inch Dedicated Pipeline",
+                cap: "300,000 BPSD",
+                type: "Medium Sour Blend"
+            },
+            jambur: {
+                tag: "JAMBUR FIELD",
+                title: "حقل جمبور (South-East Kirkuk)",
+                desc: "حقل جنوب شرق كركوك المورد للخام عالي الضغط، يتم ضخه عبر أنبوب 20 عقدة إلى الخزانات الكروية Unit 300.",
+                pipe: "20 Inch Transmission Line",
+                cap: "160,000 BPSD",
+                type: "Light High-Gas Crude"
+            },
+            khabbaz: {
+                tag: "KHABBAZ FIELD",
+                title: "حقل خباز (West Kirkuk)",
+                desc: "حقل غرب كركوك المورد للنفط عبر أنبوب 16 عقدة، يساهم في تغذية المبادلات الحرارية بانتظام.",
+                pipe: "16 Inch Feeder Pipeline",
+                cap: "40,000 BPSD",
+                type: "Standard Sour Grade"
+            },
+            nineveh: {
+                tag: "NINEVEH & SALAHADDIN",
+                title: "حقول نينوى وصلاح الدين (القيارة / عين زالة)",
+                desc: "حقول المنطقة الشمالية الممتدة التي تجهز الخامات الثقيلة والمعالجة بآليات خاصة ومحطات الضخ الاستراتيجية.",
+                pipe: "Strategic Northern Grid",
+                cap: "100,000+ BPSD",
+                type: "Heavy Sour / Medium Grade"
+            }
+        };
+
+        function selectField(fieldKey) {
+            const data = fieldData[fieldKey];
+            if (!data) return;
+            document.getElementById('map-field-tag').innerText = data.tag;
+            document.getElementById('map-field-title').innerText = data.title;
+            document.getElementById('map-field-desc').innerText = data.desc;
+            document.getElementById('map-field-pipe').innerText = data.pipe;
+            document.getElementById('map-field-cap').innerText = data.cap;
+            document.getElementById('map-field-type').innerText = data.type;
+        }
+
+        // 4. Checklist Progress Logic
+        function updateChecklist() {
+            const items = document.querySelectorAll('.chk-item');
+            let checked = 0;
+            items.forEach(i => { if(i.checked) checked++; });
+            const percentage = Math.round((checked / items.length) * 100);
+
+            document.getElementById('checklist-score').innerText = `${percentage}%`;
+            document.getElementById('checklist-bar').style.width = `${percentage}%`;
+        }
+
+        // 5. Quiz Questions Data & Certification
+        const quizData = [
+            {
+                q: "ما هي الوظيفة الأساسية لبرج النزع والتثبيت C-451 في وحدات المعالجة الحارة (NPP)؟",
+                options: [
+                    "فصل الماء الحر فقط عن النفط الخام",
+                    "نزع غاز كبريتيد الهيدروجين (H2S) وتخفيض ضغط البخار (RVP) للنفط",
+                    "تكسير الجزيئات الثقيلة وتحويلها إلى بنزين",
+                    "تخزين النفط الخام النهائي للتصدير"
+                ],
+                correct: 1
+            },
+            {
+                q: "لماذا يتم تثبيت المستوى التشغيلي للخزانات الكروية Unit 300 عند نسبة 50%؟",
+                options: [
+                    "لتوفير أقصى مساحة سطحية لتنفيس الغازات الفلاشية واستيعاب التغيرات",
+                    "لأن المضخات لا تعمل إلا عند هذا المستوى",
+                    "لمنع تجمد النفط في الجزء السفلي",
+                    "لتقليل الضغط الهيدروستاتيكي على القواعد"
+                ],
+                correct: 0
+            },
+            {
+                q: "ما الهدف الرئيسي من وجود توربين البخار P-455 لمضخة التدوير الاضطرارية؟",
+                options: [
+                    "زيادة إنتاج النفط بنسبة 50%",
+                    "ضخ النفط إلى الشعلة فوراً",
+                    "ضمان استمرار تدوير النفط في الفرن H-451 لمنع التفحم (Coking) عند انقطاع الكهرباء",
+                    "تبريد المبادلات الحرارية E-451"
+                ],
+                correct: 2
+            }
+        ];
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-questions');
+            container.innerHTML = '';
+
+            quizData.forEach((qObj, qIdx) => {
+                let optionsHtml = '';
+                qObj.options.forEach((opt, oIdx) => {
+                    optionsHtml += `
+                        <label class="flex items-center gap-3 bg-noc-dark/50 p-3 rounded-lg border border-noc-border hover:border-noc-gold/40 cursor-pointer">
+                            <input type="radio" name="q_${qIdx}" value="${oIdx}" class="accent-noc-gold">
+                            <span class="text-xs text-slate-200">${opt}</span>
+                        </label>
+                    `;
+                });
+
+                container.innerHTML += `
+                    <div class="bg-noc-dark/30 border border-noc-border p-4 rounded-xl space-y-3">
+                        <div class="text-sm font-bold text-noc-gold flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-full bg-noc-navy border border-noc-gold/40 flex items-center justify-center text-xs font-mono">${qIdx + 1}</span>
+                            <span>${qObj.q}</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function submitQuiz() {
+            const name = document.getElementById('traineeName').value.trim();
+            const dept = document.getElementById('traineeDept').value.trim();
+
+            if (!name) {
+                alert('يرجى كتابة اسم المتدرب الرباعي قبل تقييم الإجابات.');
+                return;
+            }
+
+            let correctCount = 0;
+            quizData.forEach((qObj, qIdx) => {
+                const selected = document.querySelector(`input[name="q_${qIdx}"]:checked`);
+                if (selected && parseInt(selected.value) === qObj.correct) {
+                    correctCount++;
+                }
+            });
+
+            const score = Math.round((correctCount / quizData.length) * 100);
+
+            if (score >= 66) {
+                document.getElementById('certName').innerText = name;
+                document.getElementById('certDept').innerText = dept || 'قسم المعالجة والعمليات التشغيلية';
+                document.getElementById('certScore').innerText = `${score}%`;
+                document.getElementById('certDate').innerText = new Date().toLocaleDateString('ar-IQ');
+                
+                const cert = document.getElementById('printableCert');
+                cert.classList.remove('hidden');
+                cert.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert(`نسبة إجابتك هي ${score}%. يرجى مراجعة المواد الهندسية وإعادة الاختبار للحصول على الشهادة.`);
+            }
+        }
+
+        // 6. Equipment Modal Trigger
+        function inspectEquipment(type) {
+            const modal = document.getElementById('equipModal');
+            const title = document.getElementById('modalTitle');
+            const code = document.getElementById('modalCode');
+            const body = document.getElementById('modalBody');
+
+            if (type === 'Unit 300') {
+                title.innerText = "الخزانات الكروية وتجميع التغذية";
+                code.innerText = "UNIT 300 - SPHERICAL VESSELS";
+                body.innerText = "تتكون المنظومة من خزانات كروية عالية السعة تعمل عند نصف مستواها التصميمي (+1790mm LAH) لتأمين أفضل مساحة فصل سطحي للغاز المتصاعد من الخام. ترتبط بصمامات قطع سريع MOV في حال تجاوز المنسوب المسموح.";
+            } else if (type === 'Desorber C-451') {
+                title.innerText = "برج النزع والتثبيت C-451";
+                code.innerText = "DESORBER COLUMN C-451";
+                body.innerText = "يبلغ طول العمود 48.25 متراً وقطره القاعدي 6.15 متراً، محشوة بـ 50 صينية صمامية (Valve Trays). توزع التغذية بنسبة 90% عند الصينية 48 و10% عند الصينية 50 للحد من انجراف القطيرات السائلة مع الغاز.";
+            } else if (type === 'Furnace H-451') {
+                title.innerText = "فرن إعادة التسخين H-451";
+                code.innerText = "REBOILER FURNACE H-451";
+                body.innerText = "فرن صندوقي إشعاعي يحتوي على 224 أنبوباً مدمجة في 28 مساراً حرارياً مصنعة من سبيكة 5% Cr المقاومة للبيئة الكبريتية. يتضمن توربين بخاري P-455 لضخ النفط اضطرارياً ومنع التفحم.";
+            } else {
+                title.innerText = "المعدة التشغيلية";
+                code.innerText = "NPP EQUIPMENT DETAILS";
+                body.innerText = "تخضع هذه المعدة لنظام الفحص الدوري ومراقبة الاهتزاز والحرارة التلقائي المربوط بالـ DCS لشركة نفط الشمال.";
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('equipModal').classList.add('hidden');
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            renderQuiz();
+            updateSimulator();
+            updateChecklist();
+        };
+    </script>
+</body>
+</html>
